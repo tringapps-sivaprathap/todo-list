@@ -28,7 +28,6 @@ form {
 form input, form button {
     padding: 0.5rem;
     font-size: 1.7rem;
-    border: none;
     outline: none;
     background-color: white;
     border: 2px solid rgb(16, 151, 106);
@@ -108,7 +107,6 @@ form button:hover {
 
 #operator-buttons button {
     margin: 0 2vw;
-    border: none;
     padding: .5rem;
     background-color: aquamarine;
     border: 2px solid rgb(16, 151, 106);
