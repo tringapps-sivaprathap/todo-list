@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* username, title and logout button */
+.header {
+    position: sticky;
+    top: 0;
+    background-color: #317773;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.header p {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.username {
+    color: yellow;
+}
+
+.header button {
+    background-color: #E3B448;
+    padding: .3rem;
+    border: 2px solid #ffb300;
+}
+
+/* inputbox and add button */
+.input-box {
+    position: sticky;
+    top: 10vh;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-box input {
+    font-size: 1.5rem;
+    height: 5vh;
+    width: 20vw;
+    outline: none;
+    border: 2px solid black;
+}
+
+.input-box button {
+    height: 5vh;
+    width: 5vw;
+    font-size: 1.5rem;
+    border: 2px solid black;
+    background-color: #CBD18F;
+    border-left: 0;
+}
+
+/* todo list (task list, completed and delete buttons) */
+.todo-container {
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-list {
+    list-style-type: none;
+}
+
+.todo-list div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-list div > * {
+    margin: .5rem 0;
+}
+
+.todo-item {
+    display: inline-block;
+    font-size: 1.3rem;
+    height: 4vh;
+    width: 20vw;
+    text-align: center;
+    background-color: antiquewhite;
+    border: 2px solid black;
+}
+
+.todo-complete, .todo-trash {
+    border: 2px solid black;
+    height: 4vh;
+    padding: 0 .5vw;
+    background-color: lightgreen;
+    border-left: 0;
+}
+
+.todo-trash {
+    background-color: tomato;
+}
+
+.completed {
+    text-decoration: line-through;
+    background-color: lightgray;
+}
+
+.completed-btn {
+    background-color: lightgray;
+}
+
+/* footer (clear completed and clear list) */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #317773;
+    position: fixed;
+    bottom: 0;
+    padding: 1rem;
+    width: 100vw;
+}
+
+.footer button {
+    background-color: #E3B448;
+    padding: .3rem;
+    border: 2px solid #ffb300;
+}
