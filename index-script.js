@@ -7,7 +7,7 @@ submit.addEventListener("click", () => {
     user = {
         "username": "",
         "password": "",
-        "currentuser": true
+        "currentuser": "true"
     }
 
     // creating logindetails object in localstorage

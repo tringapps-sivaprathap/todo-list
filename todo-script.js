@@ -17,7 +17,7 @@ logout.addEventListener("click", userLogout);
 loginDetails = JSON.parse(localStorage.getItem("logindetails"));
 for(let user in loginDetails) {
     if(loginDetails.hasOwnProperty(user)) {
-        if(loginDetails[user].currentuser == true) {
+        if(loginDetails[user].currentuser == "true") {
             currentUser = loginDetails[user].username;
         }
     }
@@ -54,7 +54,7 @@ function addTodo() {
 
         // saving new task localstorage
         taskDetails = JSON.parse(localStorage.getItem("taskdetails"));
-        taskDetails[currentUser][userInput] = false;
+        taskDetails[currentUser][userInput] = "false";
         localStorage.setItem("taskdetails", JSON.stringify(taskDetails));
     }
 
@@ -64,7 +64,7 @@ function addTodo() {
 // getting tasks after reload
 function getTodos() {
     // selecting the current user from localstorage
-    if(loginDetails[currentUser].currentuser == true) {
+    if(loginDetails[currentUser].currentuser == "true") {
         // getting current user tasks from localstorage
         taskDetails = JSON.parse(localStorage.getItem("taskdetails"));
 
@@ -75,7 +75,7 @@ function getTodos() {
                 const newTodo = document.createElement("li");
                 newTodo.classList.add("todo-item");
                 newTodo.innerText = task;
-                if(taskDetails[currentUser][task] == true)
+                if(taskDetails[currentUser][task] == "true")
                     newTodo.classList.add("completed");
                 todoDiv.appendChild(newTodo);
 
@@ -83,7 +83,7 @@ function getTodos() {
                 const compBtn = document.createElement("button");
                 compBtn.innerText = "completed";
                 compBtn.classList.add("todo-complete");
-                if(taskDetails[currentUser][task] == true)
+                if(taskDetails[currentUser][task] == "true")
                     compBtn.classList.add("completed-btn");
                 compBtn.addEventListener("click", completeTodo);
                 todoDiv.appendChild(compBtn);
@@ -113,9 +113,9 @@ function completeTodo(event) {
     // storing to localstorage
     taskDetails = JSON.parse(localStorage.getItem("taskdetails"));
     if(todoItem.firstChild.classList.contains("completed"))
-        taskDetails[currentUser][todoTask] = true;
+        taskDetails[currentUser][todoTask] = "true";
     else
-        taskDetails[currentUser][todoTask] = false;
+        taskDetails[currentUser][todoTask] = "false";
     localStorage.setItem("taskdetails", JSON.stringify(taskDetails));
 }
 
@@ -162,7 +162,7 @@ function clearAllTodo() {
 
 // setting currentuser to false in localstorage if the user logout
 function userLogout() {
-    loginDetails[currentUser].currentuser = false;
+    loginDetails[currentUser].currentuser = "false";
     localStorage.setItem("logindetails", JSON.stringify(loginDetails));
     
     location.href = "login.html";

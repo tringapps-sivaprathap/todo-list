@@ -16,7 +16,7 @@ submit.addEventListener("click", () => {
         alert("Wrong password!");
     }
     else {
-        loginDetails[tempName].currentuser = true;
+        loginDetails[tempName].currentuser = "true";
         localStorage.setItem("logindetails", JSON.stringify(loginDetails));
 
         location.href = "todo.html";
