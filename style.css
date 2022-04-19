@@ -37,7 +37,8 @@ table button {
     display: block;
 }
 
-table td {
+table td, table th {
+    font-weight: normal;
     font-size: 1.5rem;
     padding: 1.5rem;
 }
