@@ -16,10 +16,8 @@ logout.addEventListener("click", userLogout);
 // current username
 loginDetails = JSON.parse(localStorage.getItem("logindetails"));
 for(let user in loginDetails) {
-    if(loginDetails.hasOwnProperty(user)) {
-        if(loginDetails[user].currentuser == "true") {
-            currentUser = loginDetails[user].username;
-        }
+    if(loginDetails[user].currentuser == "true") {
+        currentUser = loginDetails[user].username;
     }
 }
 userName.innerHTML = currentUser;
@@ -61,43 +59,38 @@ function addTodo() {
     todoInput.value = "";
 }
 
-// getting tasks after reload
+// getting tasks after reload or after user login
 function getTodos() {
-    // selecting the current user from localstorage
-    if(loginDetails[currentUser].currentuser == "true") {
-        // getting current user tasks from localstorage
-        taskDetails = JSON.parse(localStorage.getItem("taskdetails"));
+    // getting currentuser tasks from localstorage
+    taskDetails = JSON.parse(localStorage.getItem("taskdetails"));
 
-        for(let task in taskDetails[currentUser]) {
-            if(taskDetails[currentUser].hasOwnProperty(task)) {
-                const todoDiv = document.createElement("div");
+    for(let task in taskDetails[currentUser]) {
+        const todoDiv = document.createElement("div");
 
-                const newTodo = document.createElement("li");
-                newTodo.classList.add("todo-item");
-                newTodo.innerText = task;
-                if(taskDetails[currentUser][task] == "true")
-                    newTodo.classList.add("completed");
-                todoDiv.appendChild(newTodo);
+        const newTodo = document.createElement("li");
+        newTodo.classList.add("todo-item");
+        newTodo.innerText = task;
+        if(taskDetails[currentUser][task] == "true")
+            newTodo.classList.add("completed");
+        todoDiv.appendChild(newTodo);
 
-                // completed button
-                const compBtn = document.createElement("button");
-                compBtn.innerText = "completed";
-                compBtn.classList.add("todo-complete");
-                if(taskDetails[currentUser][task] == "true")
-                    compBtn.classList.add("completed-btn");
-                compBtn.addEventListener("click", completeTodo);
-                todoDiv.appendChild(compBtn);
+        // completed button
+        const compBtn = document.createElement("button");
+        compBtn.innerText = "completed";
+        compBtn.classList.add("todo-complete");
+        if(taskDetails[currentUser][task] == "true")
+            compBtn.classList.add("completed-btn");
+        compBtn.addEventListener("click", completeTodo);
+        todoDiv.appendChild(compBtn);
 
-                // trash button
-                const trashBtn = document.createElement("button");
-                trashBtn.innerText = "delete";
-                trashBtn.classList.add("todo-trash");
-                trashBtn.addEventListener("click", trashTodo);
-                todoDiv.appendChild(trashBtn);
+        // trash button
+        const trashBtn = document.createElement("button");
+        trashBtn.innerText = "delete";
+        trashBtn.classList.add("todo-trash");
+        trashBtn.addEventListener("click", trashTodo);
+        todoDiv.appendChild(trashBtn);
 
-                todoList.appendChild(todoDiv);
-            }
-        }
+        todoList.appendChild(todoDiv);
     }
 }
 
